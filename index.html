@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A curated index of component registries, UI galleries and craft references in the same territory as 21st.dev.">
+<title>Sites Like 21st.dev</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=JetBrains+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap">
+
+<style>
+  :root{
+    --ground:#F6F7F4;
+    --surface:#FFFFFF;
+    --ink:#14211D;
+    --ink-2:#4E5C57;
+    --ink-3:#7C8A85;
+    --rule:#DDE2DB;
+    --rule-soft:#E9EDE6;
+    --accent:#0B6E63;
+    --accent-soft:#E2EFEB;
+    --flag:#A2482C;
+    --flag-soft:#F4E7E1;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#0F1513;
+      --surface:#161D1B;
+      --ink:#E9EEEA;
+      --ink-2:#9AA8A3;
+      --ink-3:#71807B;
+      --rule:#26302D;
+      --rule-soft:#1D2624;
+      --accent:#4FCBB7;
+      --accent-soft:#15302B;
+      --flag:#E4926F;
+      --flag-soft:#2E211B;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0F1513;
+    --surface:#161D1B;
+    --ink:#E9EEEA;
+    --ink-2:#9AA8A3;
+    --ink-3:#71807B;
+    --rule:#26302D;
+    --rule-soft:#1D2624;
+    --accent:#4FCBB7;
+    --accent-soft:#15302B;
+    --flag:#E4926F;
+    --flag-soft:#2E211B;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--ground);
+    color:var(--ink);
+    font-family:"Newsreader",Georgia,"Times New Roman",serif;
+    font-size:16px;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px 96px}
+
+  header.mast{
+    padding:64px 0 34px;
+    border-bottom:2px solid var(--ink);
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(0,320px);
+    gap:48px;
+    align-items:end;
+  }
+  .eyebrow{
+    font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--accent);margin:0 0 18px;
+  }
+  h1{
+    font-family:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+    font-weight:700;
+    font-size:clamp(38px,6.4vw,66px);
+    line-height:.98;
+    letter-spacing:-.028em;
+    margin:0;
+    text-wrap:balance;
+  }
+  h1 .lede-mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-weight:500;font-size:.82em;letter-spacing:-.02em}
+  .standfirst{margin:0;color:var(--ink-2);font-size:16.5px;line-height:1.62}
+  .standfirst strong{color:var(--ink);font-weight:500}
+
+  .cols{display:grid;grid-template-columns:184px minmax(0,1fr);gap:56px;align-items:start;margin-top:40px}
+  nav.toc{position:sticky;top:24px}
+  .toc-title{
+    font-family:"JetBrains Mono",ui-monospace,monospace;
+    font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-3);margin:0 0 12px;
+  }
+  .toc-list{display:flex;flex-direction:column;gap:2px}
+  .toc-list a{
+    display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+    font-family:"Bricolage Grotesque",Arial,sans-serif;font-weight:500;
+    font-size:13.5px;line-height:1.35;
+    color:var(--ink-2);text-decoration:none;
+    padding:7px 9px;border-radius:5px;
+    transition:background .14s ease,color .14s ease;
+  }
+  .toc-list a:hover,.toc-list a:focus-visible{background:var(--accent-soft);color:var(--accent)}
+  .toc-list .n{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+
+  section{margin-bottom:58px;scroll-margin-top:24px}
+  .sec-head{display:flex;align-items:baseline;gap:14px;padding-bottom:10px;border-bottom:1px solid var(--ink)}
+  h2{
+    font-family:"Bricolage Grotesque",Arial,sans-serif;font-weight:700;
+    font-size:23px;letter-spacing:-.02em;margin:0;line-height:1.15;
+  }
+  .count{
+    font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--ink-3);
+    font-variant-numeric:tabular-nums;white-space:nowrap;margin-left:auto;
+  }
+  .sec-note{color:var(--ink-2);font-size:15px;margin:12px 0 6px;max-width:62ch;line-height:1.6}
+
+  .row{
+    display:grid;
+    grid-template-columns:206px minmax(0,1fr) 92px;
+    gap:24px;
+    align-items:baseline;
+    padding:13px 10px;
+    margin:0 -10px;
+    border-bottom:1px solid var(--rule-soft);
+    border-radius:6px;
+    transition:background .13s ease;
+  }
+  .row:hover{background:var(--surface)}
+  .row .name{
+    font-family:"Bricolage Grotesque",Arial,sans-serif;font-weight:700;
+    font-size:15.5px;letter-spacing:-.012em;
+    color:var(--ink);text-decoration:none;
+    display:inline-block;
+    border-bottom:1.5px solid transparent;
+  }
+  .row .name:hover,.row .name:focus-visible{color:var(--accent);border-bottom-color:var(--accent)}
+  .row .url{
+    display:block;
+    font-family:"JetBrains Mono",ui-monospace,monospace;
+    font-size:10.5px;color:var(--ink-3);margin-top:3px;
+    word-break:break-all;
+  }
+  .row .desc{color:var(--ink-2);font-size:15px;line-height:1.5}
+  .row .desc b{color:var(--ink);font-weight:500}
+  .tag{
+    justify-self:start;
+    font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.07em;
+    text-transform:uppercase;padding:3px 7px;border-radius:3px;white-space:nowrap;
+    background:var(--accent-soft);color:var(--accent);
+  }
+  .tag.paid{background:var(--flag-soft);color:var(--flag)}
+  .tag.free{background:transparent;color:var(--ink-3);border:1px solid var(--rule)}
+
+  .anchor{
+    background:var(--surface);
+    border:1px solid var(--rule);
+    border-left:3px solid var(--accent);
+    border-radius:8px;
+    padding:20px 24px;
+    margin:0 0 44px;
+    display:grid;grid-template-columns:minmax(0,1fr);gap:8px;
+  }
+  .anchor .k{
+    font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-3);
+  }
+  .anchor p{margin:0;color:var(--ink-2);font-size:15px;line-height:1.6;max-width:70ch}
+  .anchor p b{color:var(--ink);font-weight:500}
+
+  footer{
+    margin-top:20px;padding-top:22px;border-top:1px solid var(--rule);
+    font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--ink-3);
+    line-height:1.8;
+  }
+
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+  @media (max-width:900px){
+    .cols{grid-template-columns:1fr;gap:28px}
+    nav.toc{position:static}
+    .toc-list{flex-direction:row;flex-wrap:wrap;gap:6px}
+    .toc-list a{border:1px solid var(--rule);border-radius:99px;padding:5px 11px}
+    .toc-list .n{display:none}
+    header.mast{grid-template-columns:1fr;gap:26px;padding-top:44px}
+  }
+  @media (max-width:620px){
+    .wrap{padding:0 18px 64px}
+    .row{grid-template-columns:1fr;gap:5px;padding:15px 10px}
+    .row .desc{font-size:14.5px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+
+  <header class="mast">
+    <div>
+      <p class="eyebrow">Reference shelf &middot; component &amp; craft sources</p>
+      <h1>Sites like <span class="lede-mono">21st.dev</span></h1>
+    </div>
+    <p class="standfirst">21st.dev is really two things at once &mdash; a <strong>copy-paste component registry</strong> and a <strong>taste gallery</strong>. This index splits those apart, so you can go to the right shelf depending on whether you need code to lift or a look to steal.</p>
+  </header>
+
+  <div class="cols">
+    <nav class="toc">
+      <p class="toc-title">Sections</p>
+      <div class="toc-list">
+        <a href="#registries">Component registries <span class="n">14</span></a>
+        <a href="#kits">Kits &amp; primitives <span class="n">9</span></a>
+        <a href="#landing">Landing galleries <span class="n">11</span></a>
+        <a href="#product">Product UI refs <span class="n">6</span></a>
+        <a href="#motion">Motion &amp; craft <span class="n">6</span></a>
+        <a href="#studied">Worth studying <span class="n">10</span></a>
+      </div>
+    </nav>
+
+    <main>
+
+      <div class="anchor">
+        <span class="k">Start here</span>
+        <p><b>Awesome shadcn/ui</b> &mdash; <a class="name" href="https://github.com/birobirobiro/awesome-shadcn-ui">github.com/birobirobiro/awesome-shadcn-ui</a> &mdash; is the meta-index that tracks nearly every registry below as it appears. If you only bookmark one link from this page, bookmark that one; the rest of section one is the curated cut worth actually browsing.</p>
+      </div>
+
+      <section id="registries">
+        <div class="sec-head"><h2>Component registries</h2><span class="count">14 sources</span></div>
+        <p class="sec-note">The direct siblings: React + Tailwind components you install or paste, mostly shadcn-compatible. This is where 21st.dev&rsquo;s actual catalogue competes.</p>
+
+        <div class="row"><div><a class="name" href="https://ui.shadcn.com">shadcn/ui</a><span class="url">ui.shadcn.com</span></div><div class="desc">The substrate everything else extends. Read its <b>registry spec</b> if you&rsquo;re building anything catalogue-shaped.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://magicui.design">Magic UI</a><span class="url">magicui.design</span></div><div class="desc">150+ animated components. The closest thing to a direct competitor &mdash; same audience, same install flow, more polish on motion.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://ui.aceternity.com">Aceternity UI</a><span class="url">ui.aceternity.com</span></div><div class="desc">Maximalist, motion-heavy hero and section blocks. Good for seeing how far a single component can be pushed.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://originui.com">Origin UI</a><span class="url">originui.com</span></div><div class="desc">Enormous depth on the boring stuff &mdash; inputs, selects, dialogs, in dozens of variants each. Best-in-class <b>form</b> reference.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://cult-ui.com">Cult UI</a><span class="url">cult-ui.com</span></div><div class="desc">Fewer components, unusually high finish. Study the detail work &mdash; shadows, easing, layered surfaces.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://kokonutui.com">Kokonut UI</a><span class="url">kokonutui.com</span></div><div class="desc">Broad Tailwind + shadcn set with a generous free tier and clean, commercial-looking blocks.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://motion-primitives.com">Motion Primitives</a><span class="url">motion-primitives.com</span></div><div class="desc">Animation-first primitives by ibelick. Small, composable &mdash; the opposite of &ldquo;drop in a whole hero&rdquo;.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://www.reactbits.dev">React Bits</a><span class="url">reactbits.dev</span></div><div class="desc">Animated React components leaning into visual effects &mdash; text reveals, backgrounds, cursor tricks.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://www.fancycomponents.dev">Fancy Components</a><span class="url">fancycomponents.dev</span></div><div class="desc">Experimental typographic and physics-driven pieces. Not production defaults &mdash; idea fuel.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://animate-ui.com">Animate UI</a><span class="url">animate-ui.com</span></div><div class="desc">shadcn-shaped components with motion built in rather than bolted on.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://bg.ibelick.com">Background Snippets</a><span class="url">bg.ibelick.com</span></div><div class="desc">Pure-CSS page backgrounds &mdash; grids, glows, gradients. Solves a real problem in about 30 seconds.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://tweakcn.com">tweakcn</a><span class="url">tweakcn.com</span></div><div class="desc">Visual theme editor for shadcn. Useful both as a tool and as a model of catalogue-plus-editor product design.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://uiverse.io">Uiverse</a><span class="url">uiverse.io</span></div><div class="desc">Thousands of community-submitted CSS components. Quality varies wildly &mdash; the interesting part is the <b>contribution model</b>.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://www.hover.dev">Hover.dev</a><span class="url">hover.dev</span></div><div class="desc">Animated Tailwind/React components sold as a kit. A good look at how these catalogues monetize.</div><span class="tag paid">Paid</span></div>
+      </section>
+
+      <section id="kits">
+        <div class="sec-head"><h2>Kits &amp; primitives</h2><span class="count">9 sources</span></div>
+        <p class="sec-note">Full systems rather than &agrave;-la-carte snippets. Reach here for coverage and accessibility rather than novelty.</p>
+
+        <div class="row"><div><a class="name" href="https://tailwindcss.com/plus">Tailwind Plus</a><span class="url">tailwindcss.com/plus</span></div><div class="desc">Formerly Tailwind UI. Still the quality bar for marketing sections and application shells &mdash; worth the licence if you ship a lot of pages.</div><span class="tag paid">Paid</span></div>
+
+        <div class="row"><div><a class="name" href="https://preline.co">Preline UI</a><span class="url">preline.co</span></div><div class="desc">Huge free Tailwind component set, framework-agnostic. Broad but generic &mdash; good bones, bring your own taste.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://flowbite.com">Flowbite</a><span class="url">flowbite.com</span></div><div class="desc">Tailwind components with React/Vue/Svelte bindings and a big block library.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://daisyui.com">daisyUI</a><span class="url">daisyui.com</span></div><div class="desc">Semantic class names on top of Tailwind, plus a genuinely good theming system worth borrowing conceptually.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://www.hyperui.dev">HyperUI</a><span class="url">hyperui.dev</span></div><div class="desc">Free, no-dependency Tailwind blocks &mdash; marketing, ecommerce, application. Copy-paste with zero install.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://www.heroui.com">HeroUI</a><span class="url">heroui.com</span></div><div class="desc">Formerly NextUI. Opinionated, well-animated React system with a distinct visual voice.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://park-ui.com">Park UI</a><span class="url">park-ui.com</span></div><div class="desc">Ark UI + Panda CSS. Interesting if you&rsquo;re considering anything other than Tailwind.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://base-ui.com">Base UI</a><span class="url">base-ui.com</span></div><div class="desc">Unstyled, accessible primitives from the Radix and MUI teams. The foundation layer, not the look.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://www.radix-ui.com/primitives">Radix Primitives</a><span class="url">radix-ui.com/primitives</span></div><div class="desc">What shadcn/ui is built on. Read the docs for behaviour specs even if you never install it.</div><span class="tag free">Free</span></div>
+      </section>
+
+      <section id="landing">
+        <div class="sec-head"><h2>Landing &amp; site galleries</h2><span class="count">11 sources</span></div>
+        <p class="sec-note">For the look rather than the code &mdash; full-page screenshots you can scan a hundred at a time to calibrate a direction.</p>
+
+        <div class="row"><div><a class="name" href="https://godly.website">Godly</a><span class="url">godly.website</span></div><div class="desc">The highest signal-to-noise gallery in this list. Tightly curated, heavy on developer-tool and studio sites.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://land-book.com">Land-book</a><span class="url">land-book.com</span></div><div class="desc">Very large, well-tagged archive. Filterable by industry, style and type &mdash; the workhorse.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://saaslandingpage.com">SaaS Landing Page</a><span class="url">saaslandingpage.com</span></div><div class="desc">Narrow on purpose: SaaS only, broken down by section (pricing, testimonials, footers).</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://www.landingfolio.com">Landingfolio</a><span class="url">landingfolio.com</span></div><div class="desc">Gallery plus a component library of individual landing sections.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://www.lapa.ninja">Lapa Ninja</a><span class="url">lapa.ninja</span></div><div class="desc">Long-running landing page collection with free UI-kit and book sections attached.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://onepagelove.com">One Page Love</a><span class="url">onepagelove.com</span></div><div class="desc">Single-page sites only. The constraint makes it unusually useful for structure decisions.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://www.siteinspire.com">SiteInspire</a><span class="url">siteinspire.com</span></div><div class="desc">Older, more editorial and agency-leaning. A good antidote if everything you look at is starting to rhyme.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://www.awwwards.com">Awwwards</a><span class="url">awwwards.com</span></div><div class="desc">Maximalist and often impractical, but the place to see what&rsquo;s technically possible this year.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://minimal.gallery">Minimal Gallery</a><span class="url">minimal.gallery</span></div><div class="desc">Restrained, typography-led sites. A useful counterweight to the motion-heavy registries.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://darkmodedesign.com">Dark Mode Design</a><span class="url">darkmodedesign.com</span></div><div class="desc">Dark interfaces only. Genuinely handy &mdash; dark palettes are where most homegrown systems fall apart.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://httpster.net">Httpster</a><span class="url">httpster.net</span></div><div class="desc">Scrappier and more idiosyncratic than the rest. Good for breaking out of a rut.</div><span class="tag free">Free</span></div>
+      </section>
+
+      <section id="product">
+        <div class="sec-head"><h2>Product UI references</h2><span class="count">6 sources</span></div>
+        <p class="sec-note">Not marketing pages &mdash; real screens, states and flows from shipped products. This is what you want once you&rsquo;re designing past the homepage.</p>
+
+        <div class="row"><div><a class="name" href="https://mobbin.com">Mobbin</a><span class="url">mobbin.com</span></div><div class="desc">The big one. Hundreds of thousands of screenshots from real apps, indexed by flow and element. Free tier is limited but usable.</div><span class="tag paid">Freemium</span></div>
+
+        <div class="row"><div><a class="name" href="https://refero.design">Refero</a><span class="url">refero.design</span></div><div class="desc">Web-app UI reference, searchable by component and page type. Stronger than Mobbin on desktop web.</div><span class="tag paid">Freemium</span></div>
+
+        <div class="row"><div><a class="name" href="https://pageflows.com">Page Flows</a><span class="url">pageflows.com</span></div><div class="desc">Recorded videos of real user flows &mdash; onboarding, upgrade, cancellation. Shows the parts screenshots miss.</div><span class="tag paid">Paid</span></div>
+
+        <div class="row"><div><a class="name" href="https://www.uisources.com">UI Sources</a><span class="url">uisources.com</span></div><div class="desc">Flow breakdowns with written analysis of why each screen works.</div><span class="tag paid">Freemium</span></div>
+
+        <div class="row"><div><a class="name" href="https://screenlane.com">Screenlane</a><span class="url">screenlane.com</span></div><div class="desc">Lightweight, free, updated often. Filter by pattern &mdash; empty states, paywalls, settings.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://nicelydone.club">Nicely Done</a><span class="url">nicelydone.club</span></div><div class="desc">Web app screens and flows, curated small. Quick to skim end to end.</div><span class="tag free">Free</span></div>
+      </section>
+
+      <section id="motion">
+        <div class="sec-head"><h2>Motion &amp; interaction craft</h2><span class="count">6 sources</span></div>
+        <p class="sec-note">Where the &ldquo;why&rdquo; lives. Registries give you a component; these explain the easing, timing and behaviour that make it feel expensive.</p>
+
+        <div class="row"><div><a class="name" href="https://animations.dev">Animations on the Web</a><span class="url">animations.dev</span></div><div class="desc">Emil Kowalski&rsquo;s course and articles. The single best resource on why interface motion feels right or wrong.</div><span class="tag paid">Freemium</span></div>
+
+        <div class="row"><div><a class="name" href="https://motion.dev/examples">Motion &mdash; Examples</a><span class="url">motion.dev/examples</span></div><div class="desc">Official gallery for the library half these registries are built on. Copyable and well-commented.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://tympanus.net/codrops/">Codrops</a><span class="url">tympanus.net/codrops</span></div><div class="desc">Fifteen years of demos and tutorials. Ahead of the trend cycle by roughly two years, consistently.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://buildui.com/recipes">Build UI &mdash; Recipes</a><span class="url">buildui.com/recipes</span></div><div class="desc">Step-by-step rebuilds of tricky interactions, with the reasoning shown rather than just the result.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://uiplaybook.dev">UI Playbook</a><span class="url">uiplaybook.dev</span></div><div class="desc">Documented behaviour for common components &mdash; every state, every edge case. A spec, not a skin.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://interfaces.rauno.me">Rauno &mdash; Interfaces</a><span class="url">interfaces.rauno.me</span></div><div class="desc">A living list of interaction details most teams never notice. Short, dense, extremely high leverage.</div><span class="tag free">Free</span></div>
+      </section>
+
+      <section id="studied">
+        <div class="sec-head"><h2>Sites worth studying directly</h2><span class="count">10 sources</span></div>
+        <p class="sec-note">No gallery in between. These are the products the galleries keep featuring &mdash; open devtools and read how they are actually built.</p>
+
+        <div class="row"><div><a class="name" href="https://linear.app">Linear</a><span class="url">linear.app</span></div><div class="desc">The most-copied aesthetic in software right now. Worth understanding so you can deviate deliberately.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://vercel.com/geist">Vercel &mdash; Geist</a><span class="url">vercel.com/geist</span></div><div class="desc">A full public design system with documented tokens. The best free model for how to document your own.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://www.raycast.com">Raycast</a><span class="url">raycast.com</span></div><div class="desc">Marketing site and app both. Exceptional at making dense, keyboard-driven UI look inviting.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://resend.com">Resend</a><span class="url">resend.com</span></div><div class="desc">Restraint as a strategy. Almost nothing on the page, and it converts developers anyway.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://clerk.com">Clerk</a><span class="url">clerk.com</span></div><div class="desc">Best-in-class at showing a component product visually &mdash; live, interactive demos instead of screenshots.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://supabase.com">Supabase</a><span class="url">supabase.com</span></div><div class="desc">A large surface area held together by one consistent voice. Study the docs and dashboard, not just the homepage.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://liveblocks.io">Liveblocks</a><span class="url">liveblocks.io</span></div><div class="desc">Sells an invisible primitive by making it visible. A strong lesson in demoing abstract infrastructure.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://trigger.dev">Trigger.dev</a><span class="url">trigger.dev</span></div><div class="desc">Dense technical product, legible page. Good reference for explaining something complicated above the fold.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://stripe.com">Stripe</a><span class="url">stripe.com</span></div><div class="desc">Still the benchmark for docs, gradients and code samples used as design elements.</div><span class="tag free">Free</span></div>
+
+        <div class="row"><div><a class="name" href="https://paco.me">Paco Coursey</a><span class="url">paco.me</span></div><div class="desc">Author of cmdk and Vaul. Craft notes from someone whose components everyone else ships.</div><span class="tag free">Free</span></div>
+      </section>
+
+      <footer>
+        56 sources &middot; Free / Freemium / Paid noted per row<br>
+        Compiled 29 Aug 2026 &middot; Pricing and free tiers change often &mdash; verify before committing
+      </footer>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>
